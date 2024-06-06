@@ -91,10 +91,10 @@ After creating EC2, it s time to connect to it.
 
 [ec2-user ~]$ sudo systemctl status jenkins
 
+Jenkins is now installed and running on your EC2 instance. To configure Jenkins:
+
 
 ## Configuring Jenkins
-
-Jenkins is now installed and running on your EC2 instance. To configure Jenkins:
 
 - Connect to http://<your_server_public_DNS>:8080 from your browser. You will be able to access Jenkins through its management interface.
 
@@ -108,7 +108,7 @@ Jenkins is now installed and running on your EC2 instance. To configure Jenkins:
 
 - Once the installation is complete, the Create First Admin User will open. Enter your information, and then select Save and Continue.
 
-- Create your first admin user.
+#### Create your first admin user.
 
 - On the left-hand side, select Manage Jenkins, and then select Manage Plugins.
 
@@ -145,35 +145,3 @@ Jenkins is now installed and running on your EC2 instance. To configure Jenkins:
 - Scroll down to "Test Connection" and ensure it states "Success". Select Save when done
 
 - Test Connection. You are now ready to use EC2 instances as Jenkins agents.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Create EC2
-
-Click on the following link to see how to create an EC2 instance. 
-
-In this tutorial, you will perform the following steps: 
-Prerequisites. 
-
-Create a key pair using Amazon EC2. If you already have one, you can skip to step 
-
-3. Create a security group for your Amazon EC2 instance. If you already have one, you can skip to step 
-
-4. Launch an Amazon EC2 instance. 
-
-Install and configure Jenkins. 
-
-Clean up tutorial resources.
-
-## 
