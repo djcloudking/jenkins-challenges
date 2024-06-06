@@ -24,7 +24,7 @@ You should have access to an AWS account.
 
 - If you already have one, you can skip to step 4.
 
-- For this tutorial, you will create a security group and add the following rules:
+- Create a security group and add the following rules:
 
     - Allow inbound HTTP access from anywhere.
 
@@ -47,9 +47,11 @@ You should have access to an AWS account.
 
 - You have your key pair and your security group, launch your EC2 instance. 
 
+
 ## Connecting to EC2 instances
 
 After creating EC2, it s time to connect to it. 
+
 
 ## Install and configure Jenkins
 
@@ -94,78 +96,57 @@ After creating EC2, it s time to connect to it.
 
 Jenkins is now installed and running on your EC2 instance. To configure Jenkins:
 
-Connect to http://<your_server_public_DNS>:8080 from your browser. You will be able to access Jenkins through its management interface:
+- Connect to http://<your_server_public_DNS>:8080 from your browser. You will be able to access Jenkins through its management interface.
 
-Unlock Jenkins screen
-As prompted, enter the password found in /var/lib/jenkins/secrets/initialAdminPassword.
+- As prompted, enter the password found in /var/lib/jenkins/secrets/initialAdminPassword.
 
-Use the following command to display this password:
+- Use the following command to display this password:
 
 [ec2-user ~]$ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-The Jenkins installation script directs you to the Customize Jenkins page. Click Install suggested plugins.
 
-Once the installation is complete, the Create First Admin User will open. Enter your information, and then select Save and Continue.
+- The Jenkins installation script directs you to the Customize Jenkins page. Click Install suggested plugins.
 
-Create your first admin user.
-On the left-hand side, select Manage Jenkins, and then select Manage Plugins.
+- Once the installation is complete, the Create First Admin User will open. Enter your information, and then select Save and Continue.
 
-Select the Available tab, and then enter Amazon EC2 plugin at the top right.
+- Create your first admin user.
 
-Select the checkbox next to Amazon EC2 plugin, and then select Install without restart.
+- On the left-hand side, select Manage Jenkins, and then select Manage Plugins.
 
-Jenkins Plugin Manager showing available plugins.
-Once the installation is done, select Back to Dashboard.
+- Select the Available tab, and then enter Amazon EC2 plugin at the top right.
 
-Select Configure a cloud if there are no existing nodes or clouds.
+- Select the checkbox next to Amazon EC2 plugin, and then select Install without restart.
 
-Jenkins Dashboard showing configure a cloud.
-If you already have other nodes or clouds set up, select Manage Jenkins.
+- Jenkins Plugin Manager showing available plugins. Once the installation is done, select Back to Dashboard.
 
-Jenkins dashboard if there are existing clouds.
-After navigating to Manage Jenkins, select Configure Nodes and Clouds from the left hand side of the page.
+- Select Configure a cloud if there are no existing nodes or clouds.
 
-Manage nodes and clouds option from Manage Jenkins page
-From here, select Clouds.
+- Jenkins Dashboard showing configure a cloud. If you already have other nodes or clouds set up, select Manage Jenkins.
 
-Configure clouds option in navigation.
-Select Add a new cloud, and select Amazon EC2. A collection of new fields appears.
+- After navigating to Manage Jenkins, select Configure Nodes and Clouds from the left hand side of the page.
 
-Adding Amazon EC2 cloud to Jenkins.
-Click Add under Amazon EC2 Credentials
+-   Select Add a new cloud, and select Amazon EC2. A collection of new fields appears.
 
-Adding EC2 credentials in Configure Cloud.
-From the Jenkins Credentials Provider, select AWS Credentials as the Kind.
+- Click Add under Amazon EC2 Credentials
 
-Choosing Kind AWS Credentials.
-Scroll down and enter in the IAM User programmatic access keys with permissions to launch EC2 instances and select Add.
+- From the Jenkins Credentials Provider, select AWS Credentials as the Kind.
 
-Adding AWS Credentials.
-Scroll down to select your region using the drop-down, and select Add for the EC2 Key Pair’s Private Key.
+- Scroll down and enter in the IAM User programmatic access keys with permissions to launch EC2 instances and select Add.
 
-Set Region and add Private Key.
-From the Jenkins Credentials Provider, select SSH Username with private key as the Kind and set the Username to ec2-user.
+- Scroll down to select your region using the drop-down, and select Add for the EC2 Key Pair’s Private Key.
 
-Set Kind to SSH Username with private key.
-Scroll down and select Enter Directly under Private Key, then select Add.
+- From the Jenkins Credentials Provider, select SSH Username with private key as the Kind and set the Username to ec2-user.
 
-Set Private Key to Enter Directly.
-Open the private key pair you created in the creating a key pair step and paste in the contents from "-----BEGIN RSA PRIVATE KEY-----" to "-----END RSA PRIVATE KEY-----". Select Add when completed.
+- Scroll down and select Enter Directly under Private Key, then select Add.
 
-Enter Private Key.
-Scroll down to "Test Connection" and ensure it states "Success". Select Save when done
+- Set Private Key to Enter Directly. Open the private key pair you created in the creating a key pair step and paste in the contents from "-----BEGIN RSA PRIVATE KEY-----" to "-----END RSA PRIVATE KEY-----". Select Add when completed.
 
-Test Connection.
-You are now ready to use EC2 instances as Jenkins agents.
+- Enter Private Key.
 
-Cleaning up
-After completing this tutorial, be sure to delete the AWS resources that you created so you do not continue to accrue charges.
+- Scroll down to "Test Connection" and ensure it states "Success". Select Save when done
 
-Deleting your EC2 instance
-In the left-hand navigation bar of the Amazon EC2 console, select Instances.
+- Test Connection. You are now ready to use EC2 instances as Jenkins agents.
 
-Right-click on the instance you created earlier, and select Terminate.
 
-Terminating your AWS EC2 instance.
 
 
 
